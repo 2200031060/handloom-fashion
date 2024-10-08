@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
-import backgroundImage from '../assets/background.jpg'; // Import the background image if needed
+import backgroundImage from '../assets/background.jpg'; // Import the background image
 import productImage1 from '../assets/1.jpg'; // Import product image 1
 import productImage2 from '../assets/5.jpg'; // Import product image 2
 import bagImage1 from '../assets/3.jpeg'; // Replace with your actual image paths
@@ -45,14 +45,21 @@ const Products = () => {
       description: 'A soft handloom blanket perfect for cold nights.',
       imageUrl: blanketImage1, // Use imported image
     },
-    // Add more products as needed
   ];
 
+  // Applying the background image using inline styles
+  const sectionStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    padding: '20px',
+  };
+
   return (
-    <div>
+    <div style={sectionStyle}>
       <h1>Products</h1>
       <div className="product-list">
-        {products.map(product => (
+        {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
